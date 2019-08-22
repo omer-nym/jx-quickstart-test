@@ -1,0 +1,106 @@
+Step: step-credential-initializer-4nwwz:
+
+{"level":"warn","ts":1566461916.9661071,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1566461916.9665153,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+Step: step-working-dir-initializer-dn8hq:
+
+{"level":"warn","ts":1566461918.0015306,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1566461918.0027366,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source /workspace/source/charts/**-quickstart-test\""}
+Step: step-place-tools:
+
+Step: step-git-source-*******-**-quickstart-test-mast-jdbr8:
+
+{"level":"warn","ts":1566461924.0351536,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1566461924.2047226,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/*******/**-quickstart-test.git @ v0.0.1 in path /workspace/source"}
+Step: step-git-merge:
+
+WARNING: no SHAs to merge, falling back to initial cloned commit
+Step: step-setup-**-git-credentials:
+
+Generated Git credentials file /workspace/xdg_config/git/credentials
+Step: step-build-python-unittest:
+
+
+----------------------------------------------------------------------
+Ran 0 tests in 0.000s
+
+OK
+Step: step-build-container-build:
+
+[36mINFO[0m[0000] Downloading base image python:onbuild        
+[36mINFO[0m[0000] Error while retrieving image from cache: getting file info: stat /workspace/sha256:43780a8431c53f4afd734ad795e03127c0c607337a60639c5903a51a03535c22: no such file or directory 
+[36mINFO[0m[0000] Downloading base image python:onbuild        
+[36mINFO[0m[0000] Executing 3 build triggers                   
+[36mINFO[0m[0000] Using files from context: [/workspace/source/requirements.txt] 
+[36mINFO[0m[0000] Checking for cached layer 733373435183.dkr.ecr.us-east-1.amazonaws.com/todo/cache:f96ea06eb1dc1e896fb6ba60e374488f43e9918d4fe1cb30c5f26c8dea340a73... 
+[36mINFO[0m[0000] No cached layer found for cmd RUN pip install --no-cache-dir -r requirements.txt 
+[36mINFO[0m[0000] Unpacking rootfs as cmd RUN pip install --no-cache-dir -r requirements.txt requires it. 
+[36mINFO[0m[0011] Taking snapshot of full filesystem...        
+[36mINFO[0m[0017] Using files from context: [/workspace/source/requirements.txt] 
+[36mINFO[0m[0017] COPY requirements.txt /usr/src/app/          
+[36mINFO[0m[0017] Taking snapshot of files...                  
+[36mINFO[0m[0017] RUN pip install --no-cache-dir -r requirements.txt 
+[36mINFO[0m[0017] cmd: /bin/sh                                 
+[36mINFO[0m[0017] args: [-c pip install --no-cache-dir -r requirements.txt] 
+You are using pip version 10.0.1, however version 19.2.2 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+[36mINFO[0m[0018] Taking snapshot of full filesystem...        
+[36mINFO[0m[0021] Using files from context: [/workspace/source] 
+[36mINFO[0m[0021] COPY . /usr/src/app                          
+[36mINFO[0m[0021] Pushing layer 733373435183.dkr.ecr.us-east-1.amazonaws.com/todo/cache:f96ea06eb1dc1e896fb6ba60e374488f43e9918d4fe1cb30c5f26c8dea340a73 to cache now 
+[36mINFO[0m[0021] Taking snapshot of files...                  
+[36mINFO[0m[0021] Using files from context: [/workspace/source/requirements.txt] 
+[36mINFO[0m[0021] COPY requirements.txt .                      
+[36mINFO[0m[0021] Taking snapshot of files...                  
+[36mINFO[0m[0021] ENV PORT 8080                                
+[36mINFO[0m[0021] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0021] EXPOSE 8080                                  
+[36mINFO[0m[0021] cmd: EXPOSE                                  
+[36mINFO[0m[0021] Adding exposed port: 8080/tcp                
+[36mINFO[0m[0021] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0021] ENTRYPOINT ["python"]                        
+[36mINFO[0m[0021] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0021] CMD ["app.py"]                               
+[36mINFO[0m[0021] No files changed in this command, skipping snapshotting. 
+[33mWARN[0m[0022] error uploading layer to cache: failed to push to destination 733373435183.dkr.ecr.us-east-1.amazonaws.com/todo/cache:f96ea06eb1dc1e896fb6ba60e374488f43e9918d4fe1cb30c5f26c8dea340a73: NAME_UNKNOWN: The repository with name 'todo/cache' does not exist in the registry with id '733373435183' 
+2019/08/22 08:19:08 pushed blob: sha256:dfda036a81d19a6df0ba6205da81470e8ebc2a21bee4db0bfb1a27645f375a00
+2019/08/22 08:19:08 pushed blob: sha256:be83d2eb696b4328e90590cac28c7bb4d00310acd1a3afe3a94b05add108b8fa
+2019/08/22 08:19:08 pushed blob: sha256:2a210190e55086fdb5119e47406f6d9e4a230c171a4c0d32616a16d53bb3b65a
+2019/08/22 08:19:08 pushed blob: sha256:e2c0fb34dff3a1d32346b92e53fb88a14d1987b402a2348cb379c039687fabe2
+2019/08/22 08:19:09 pushed blob: sha256:490280dbcfb772eb5731f059e38fcfacaeb75b4d005af7c249fd51926db2bd62
+2019/08/22 08:19:09 pushed blob: sha256:e96bc319bce0351d1157092352bc5f85f8800c745388e60e86d06dec99285b45
+2019/08/22 08:19:09 pushed blob: sha256:811a817096361051bef18f03397b2c144308174c02347afeabf502825bf5712c
+2019/08/22 08:19:09 pushed blob: sha256:aeaa7e3893b9155e00366a941bcd223488740b4c7c8f6fd0689e9d702e17a7e7
+2019/08/22 08:19:09 pushed blob: sha256:2d21c767035c4593de8bf7ad9781aa83ba110871d1a50871192f4e3480e6f11d
+2019/08/22 08:19:11 pushed blob: sha256:e10b68fb77e6e91453cd4c1b02e2d77aa23a857cd8eb250617129d074478e1a5
+2019/08/22 08:19:11 pushed blob: sha256:ece825d3308bbf98f708d95475ccd880497a1e2979ff4ef2534d49049a18488f
+2019/08/22 08:19:20 pushed blob: sha256:1c7fe136a31e13a1c879245672184ced3b9fc590989ba42a522a57b071a9c1aa
+2019/08/22 08:19:24 pushed blob: sha256:f0db43b9b8da254cebc77bf871006df01219e195b9853616b9f708f124a00f3a
+2019/08/22 08:19:32 pushed blob: sha256:06854774e2f35e4763103a446112c67322913a6177bea69eb49663e0166e6d6d
+2019/08/22 08:19:32 733373435183.dkr.ecr.us-east-1.amazonaws.com/*******/**-quickstart-test:0.0.1: digest: sha256:3f0684522eef244b9037090681a8644ac2901bb4fa19191f819193f8bdbb6955 size: 2385
+Step: step-build-post-build:
+
+no CVE provider running in the current ** namespace so skip adding image to be analysed
+Step: step-promote-changelog:
+
+Converted /workspace/source/charts/**-quickstart-test to an unshallow repository
+no previous commit version found so change diff unavailable
+Step: step-promote-helm-release:
+
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: storage.googleapis.com https://storage.googleapis.com/chartmuseum.jenkins-x.io
+Successfully added Helm repository storage.googleapis.com.
+Adding missing Helm repo: jenkins-x-chartmuseum http://jenkins-x-chartmuseum:8080
+Successfully added Helm repository jenkins-x-chartmuseum.
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Uploading chart file **-quickstart-test-0.0.1.tgz to http://jenkins-x-chartmuseum:8080/api/charts
+Received 201 response: {"saved":true}
+Step: step-promote-**-promote:
+
+WARNING: prow based install so skip waiting for the merge of Pull Requests to go green as currently there is an issue with gettingstatuses from the PR, see https://github.com/jenkins-x/**/issues/2410
+Promoting app **-quickstart-test version 0.0.1 to namespace **-staging
+Created Pull Request: https://github.com/*******/environment-**-test-staging/pull/3
+Added label  to Pull Request https://github.com/*******/environment-**-test-staging/pull/3
+Pull Request https://github.com/*******/environment-**-test-staging/pull/3 is merged at sha f0e2c825e519052115d73d0ae9db3d3cbb33f9d7
+Pull Request merged but we are not waiting for the update pipeline to complete!
+WARNING: Could not find the service URL in namespace **-staging for names **-quickstart-test, **-**-quickstart-test, **-staging-**-quickstart-test
